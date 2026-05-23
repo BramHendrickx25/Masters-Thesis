@@ -1,0 +1,139 @@
+# local x = 320
+
+pa_define($(x),$(x),1500,planar,n,e,10,1,1)
+
+;--Ion Guide-------------------------------------------------------------------------------------------
+; half length of IG plus 1 cm for defringing
+locate(0,0,0,1,0,0) {
+	;first set of electrodes
+	locate($(x/2),$(x/2),1192.05,1,0,0,0){
+		electrode(15){
+			fill{
+				within{
+					cylinder(31.4,31.4,0,23.75,23.75,1192.05)
+				}
+				within{
+					cylinder(-31.4,-31.4,0,23.75,23.75,1192.05)
+				}
+			}
+		}
+		electrode(16){
+			fill{
+				within{
+					cylinder(-31.4,31.4,0,23.75,23.75,1192.05)
+				}
+				within{
+					cylinder(31.4,-31.4,0,23.75,23.75,1192.05)
+				}
+			}
+		}
+	}
+}
+
+
+;--BICEPS-------------------------------------------------------------------------------------------
+; 1 mm spacer between IG and BICEPS
+locate(0,0,1202.05,1,0,0) {
+	;injection aperature
+	locate($(x/2),$(x/2),50,1,0,0,0){
+		electrode(17){
+			fill{
+				within{
+					cylinder(0,0,0,120,120,50)
+				}
+				notin{
+					cylinder(0,0,0,10,10,50)
+				}
+			}
+		}
+	}
+	;left electrode set
+	locate($(x/2),$(x/2),119.8,1,0,0,0){
+		electrode(18){
+			fill{
+				within{
+					cylinder(-15.865,-15.865,0,12,12,63.50) ; cylinder(xc, yx, zc, rx, ry, length = -z direction) The diameter i measured was 2.40 mm so xr and yr should be 12.0
+				}
+				within{
+					cylinder(15.865,15.865,0,12,12,63.50)
+				}
+				
+			}
+		}
+		electrode(19){
+			fill{
+				within{
+					cylinder(-15.865,15.865,0,12,12,63.50)
+				}
+				within{
+					cylinder(15.865,-15.865,0,12,12,63.50)
+				}
+				
+			}
+		}
+		
+	}
+    	;middle electrode set
+	locate($(x/2),$(x/2),191.6,1,0,0,0){
+		electrode(20){
+			fill{
+				within{
+					cylinder(-15.865,-15.865,0,12,12,63.50)
+				}
+				within{
+					cylinder(15.865,15.865,0,12,12,63.50)
+				}
+				
+			}
+		}
+		electrode(21){
+			fill{
+				within{
+					cylinder(-15.865,15.865,0,12,12,63.50)
+				}
+				within{
+					cylinder(15.865,-15.865,0,12,12,63.50)
+				}
+				
+			}
+		}
+		
+	}
+    	;right electrode set
+	locate($(x/2),$(x/2),263.4,1,0,0,0){
+		electrode(22){
+			fill{
+				within{
+					cylinder(-15.865,-15.865,0,12,12,63.50)
+				}
+				within{
+					cylinder(15.865,15.865,0,12,12,63.50)
+				}
+				
+			}
+		}
+		electrode(23){
+			fill{
+				within{
+					cylinder(-15.865,15.865,0,12,12,63.50)
+				}
+				within{
+					cylinder(15.865,-15.865,0,12,12,63.50)
+				}
+				
+			}
+		}
+		
+	}
+    	;grounded holder
+    	locate($(x/2),$(x/2),271.7,1,0,0,0){
+        	electrode(24){
+            		fill{
+                		within{
+                    			box3d(-28,-28,0,28,28,40)
+                		}
+            		}
+        	}
+	}
+
+}

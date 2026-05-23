@@ -1,0 +1,187 @@
+# local x = 320
+
+pa_define($(x),$(x),1480,planar,n,e,10,1,1)
+
+;--Trap------------------------------------------------------------------------------------------------
+locate(0,0,0,1,0,0) {
+    ; first segment of STRIPE trap electrodes (5th segment in STRIPE)
+    locate($(x/2),$(x/2),50,1,0,0) {
+        ; First pair electrodes in this segment
+        	electrode(1){
+			fill{
+				within{
+                    ; no offset from the edge
+					cylinder(61.5,61.5,0,46,46,50)
+				}
+				within{
+					cylinder(-61.5,-61.5,0,46,46,50)
+				}
+			}
+		}
+        ; Second pair electrodes in this segment
+		electrode(2){
+			fill{
+				within{
+					cylinder(-61.5,61.5,0,46,46,50)
+				}
+				within{
+					cylinder(61.5,-61.5,0,46,46,50)
+				}
+			}
+		}
+	}
+
+    ; second segment of STRIPE trap electrodes (6th segment in STRIPE)
+    locate($(x/2),$(x/2),110,1,0,0) {
+        ; First pair electrodes in this segment
+        	electrode(3){
+			fill{
+				within{
+                    ; no offset from the edge
+					cylinder(61.5,61.5,0,46,46,50)
+				}
+				within{
+					cylinder(-61.5,-61.5,0,46,46,50)
+				}
+			}
+		}
+        ; Second pair electrodes in this segment
+		electrode(4){
+			fill{
+				within{
+					cylinder(-61.5,61.5,0,46,46,50)
+				}
+				within{
+					cylinder(61.5,-61.5,0,46,46,50)
+				}
+			}
+		}
+	}
+
+    ; third segment of STRIPE trap electrodes (6th segment in STRIPE)
+    locate($(x/2),$(x/2),170,1,0,0) {
+        ; First pair electrodes in this segment
+        	electrode(5){
+			fill{
+				within{
+                    ; no offset from the edge
+					cylinder(61.5,61.5,0,46,46,50)
+				}
+				within{
+					cylinder(-61.5,-61.5,0,46,46,50)
+				}
+			}
+		}
+        ; Second pair electrodes in this segment
+		electrode(6){
+			fill{
+				within{
+					cylinder(-61.5,61.5,0,46,46,50)
+				}
+				within{
+					cylinder(61.5,-61.5,0,46,46,50)
+				}
+			}
+		}
+	}
+
+    ; fourth segment of STRIPE trap electrodes (6th segment in STRIPE)
+    locate($(x/2),$(x/2),230,1,0,0) {
+        ; First pair electrodes in this segment
+        	electrode(7){
+			fill{
+				within{
+                    ; no offset from the edge
+					cylinder(61.5,61.5,0,46,46,50)
+				}
+				within{
+					cylinder(-61.5,-61.5,0,46,46,50)
+				}
+			}
+		}
+        ; Second pair electrodes in this segment
+		electrode(8){
+			fill{
+				within{
+					cylinder(-61.5,61.5,0,46,46,50)
+				}
+				within{
+					cylinder(61.5,-61.5,0,46,46,50)
+				}
+			}
+		}
+	}
+
+    ;grounded trap cross
+	locate($(x/2),$(x/2),290,1,0,0,0){
+		electrode(9){
+			fill{
+				within{
+					; second cross 0.5 mm offset from the edge
+					cylinder(0,0,0,150,150,50)
+				}
+				notin{
+					; aperature in the cross for ejection
+					cylinder(0,0,0,15,15,50)
+				}
+			}
+		}
+	}
+}
+;--Funnel lens------------------------------------------------------------------------------
+locate($(x/2),$(x/2), 290, 1, 0, 0) {
+    ; Funnel, rotated axes since the rotate fill function rotates around the x axis
+    locate(0, 0, 80, 1, 0, 0) {
+        electrode(14) {
+            fill {
+                within {
+                    cylinder(0, 0, 0, 150, 150, 80)
+                }
+                notin {
+                    cylinder(0, 0, 0, 15, 15, 80)
+                }
+            }
+        }
+    }    
+    ; Mounting piece
+    locate(0, 0, 190, 1, 0, 0) {
+        electrode(14) {
+            fill {
+                within {
+                    cylinder(0, 0, 0, 150, 150, 80)
+                }
+                notin {
+                    cylinder(0, 0, 0, 20, 20, 80)
+                }
+            }
+        }
+    }
+}
+
+;--Ion Guide-------------------------------------------------------------------------------------------
+; I add here the first half of the IG + 1 cm to make sure no fringe effects take place
+locate(0,0,480,1,0,0) {
+	;first set of electrodes
+	locate($(x/2),$(x/2),1016.4,1,0,0,0){
+		electrode(15){
+			fill{
+				within{
+					cylinder(31.4,31.4,0,23.75,23.75,997.5)
+				}
+				within{
+					cylinder(-31.4,-31.4,0,23.75,23.75,997.5)
+				}
+			}
+		}
+		electrode(16){
+			fill{
+				within{
+					cylinder(-31.4,31.4,0,23.75,23.75,997.5)
+				}
+				within{
+					cylinder(31.4,-31.4,0,23.75,23.75,997.5)
+				}
+			}
+		}
+	}
+}
