@@ -1,17 +1,13 @@
 simion.workbench_program()
 
 local runs = 1 -- Amount of runs
-local ions_info = true -- If true ions are terminated at plane and if talse first hit principle stands (from the moment the first ion hits the plane all others are killed, used to connect to the other part of the setup)
-local neutron_mode = false -- If true the positions and potentials felt by the ion are recorded for each tine step
+local ions_info = true -- If true ions are terminated at IG_testplane_4 and if false first hit principle stands (from the moment the first ion hits the IG_testplane_4 all others are killed)
+local neutron_mode = false -- If true the positions and potentials felt by the ion are recorded for each time step, used to record potentials using neutral probe particle
 local record_trajectory = true -- If true, record the positions of the ions for each timestep
 
 -- z position of the test planes
 -- STRIPE exit (right before cross) at 24 mm
 -- STRIPE exit (right after cross) at 29 mm
--- IG_testplane_1 at 24 mm
--- IG_testplane_2 at 35 mm
--- IG_testplane_3 at 50 mm
--- IG_testplane_4 at 80 mm
 -- IG center at 139.205 mm
 
 local STRIPE_testplane = 29
