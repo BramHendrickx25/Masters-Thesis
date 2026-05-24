@@ -79,15 +79,6 @@ local ions_x, ions_y, ions_z, ions_px, ions_py, ions_pz, ions_tof = {}, {}, {}, 
 
 -- Custom defined functions
 function average(array)
-		--[[
-  		Calculates the arithmetic mean of all numbers in an array.
-
-  		Parameters:
-    	array - A table of numbers
-
-  		Returns:
-    	The average of all numbers in the array, or 0 if the array is empty
-		]]
         local result = 0
         for _,a in ipairs(array) do result = result + a end
         if #array ~= 0 then result = result / #array end
@@ -209,81 +200,82 @@ function segment.flym()
             file:write("particles {\n")
             file:close()
         end
-    end
+	else
 
-    -- Initialize files for STRIPE_testplane
-    do
-        local file = io.open("Stability_data_STRIPE.csv", "w")
-        file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
-        file:close()
-    end
-    do
-        local file = io.open("rawdata_STRIPE.csv", "w")
-        file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
-        file:close()
-    end
+    	-- Initialize files for STRIPE_testplane
+    	do
+        	local file = io.open("Stability_data_STRIPE.csv", "w")
+        	file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
+        	file:close()
+    	end
+    	do
+        	local file = io.open("rawdata_STRIPE.csv", "w")
+        	file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
+        	file:close()
+    	end
 
-    -- Initialize files for IG_testplane_1
-    do
-        local file = io.open("Stability_data_IG_1.csv", "w")
-        file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
-        file:close()
-    end
-    do
-        local file = io.open("rawdata_IG_1.csv", "w")
-        file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
-        file:close()
-    end
+    	-- Initialize files for IG_testplane_1
+    	do
+        	local file = io.open("Stability_data_IG_1.csv", "w")
+        	file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
+        	file:close()
+    	end
+    	do
+        	local file = io.open("rawdata_IG_1.csv", "w")
+        	file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
+        	file:close()
+    	end
 
-    -- Initialize files for IG_testplane_2
-    do
-        local file = io.open("Stability_data_IG_2.csv", "w")
-        file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
-        file:close()
-    end
-    do
-        local file = io.open("rawdata_IG_2.csv", "w")
-        file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
-        file:close()
-    end
+    	-- Initialize files for IG_testplane_2
+    	do
+        	local file = io.open("Stability_data_IG_2.csv", "w")
+        	file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
+        	file:close()
+		end
+    	do
+        	local file = io.open("rawdata_IG_2.csv", "w")
+        	file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
+        	file:close()
+    	end
 
-    -- Initialize files for IG_testplane_3
-    do
-        local file = io.open("Stability_data_IG_3.csv", "w")
-        file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
-        file:close()
-    end
-    do
-        local file = io.open("rawdata_IG_3.csv", "w")
-        file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
-        file:close()
-    end
+    	-- Initialize files for IG_testplane_3
+    	do
+        	local file = io.open("Stability_data_IG_3.csv", "w")
+        	file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
+        	file:close()
+    	end
+    	do
+        	local file = io.open("rawdata_IG_3.csv", "w")
+        	file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
+        	file:close()
+	    end
 
-    -- Initialize files for IG_testplane_4
-    do
-        local file = io.open("Stability_data_IG_4.csv", "w")
-        file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
-        file:close()
-    end
-    do
-        local file = io.open("rawdata_IG_4.csv", "w")
-        file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
-        file:close()
-    end
+    	-- Initialize files for IG_testplane_4
+    	do
+        	local file = io.open("Stability_data_IG_4.csv", "w")
+        	file:write("Transport(%),Total_norm_emit,Av_Kinetic_Energy(eV),radial position(mm),Time-of-Flight spread(usec)\n")
+        	file:close()
+    	end
+    	do
+        	local file = io.open("rawdata_IG_4.csv", "w")
+        	file:write("x-position(mm),y-position(mm),z-position(mm),x-velocity(mm/µs),y-velocity(mm/µs),z-velocity(mm/µs),x-ke(eV),y-ke(eV),z-ke(eV),time-of-flight(µs)\n")
+        	file:close()
+    	end
 
-    -- Initialize files for potentials cross-section
-    do
-        local file = io.open("potentials.csv", "w")
-        file:write("axial position(mm),potential(V)\n")
-        file:close()
-    end
+    	-- Initialize files for potentials cross-section
+    	do
+        	local file = io.open("potentials.csv", "w")
+        	file:write("axial position(mm),potential(V)\n")
+        	file:close()
+    	end
 
-    -- Initialize files for trajectory data
-    do
-        local file = io.open("trajectories.csv", "w")
-        file:write("x_positions(mm),y_positions(mm),z_positions(mm),x_velocity(mm/usec),y_velocity(mm/usec),z_velocity(mm/usec),ToF(usec)\n")
-        file:close()
-    end
+    	-- Initialize files for trajectory data
+    	do
+        	local file = io.open("trajectories.csv", "w")
+        	file:write("x_positions(mm),y_positions(mm),z_positions(mm),x_velocity(mm/usec),y_velocity(mm/usec),z_velocity(mm/usec),ToF(usec)\n")
+        	file:close()
+    	end
+	end
 
     RF_phase = 0
     sim_rerun_flym = 1
