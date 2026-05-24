@@ -277,13 +277,13 @@ function segment.flym()
     	end
 	end
 
-    RF_phase = 0
-    sim_rerun_flym = 1
+    RF_phase = 0 -- Initial phase of the STRIPE and IG RF potentials
+    sim_rerun_flym = 1 -- Speeds up the simulation
     sim_trajectory_image_control = 0
     for i = 1, runs do
         number_run = i
         run()
-        RF_phase = RF_phase + 1/12
+        RF_phase = RF_phase + 1/12 -- Change the initial RF phase between different runs
     end
 end
 
@@ -300,12 +300,13 @@ end
 
 -- This function is called exactly once at the start of each run in the segment.flym() function
 function segment.initialize_run()
-    sim_trajectory_quality = 25
-    sim_grouped = 1
+    sim_trajectory_quality = 25 -- Can be changed according to the required quality
+    sim_grouped = 1 -- Required for ion-ion interaction
 
     -- counters
     ions_counter = 0
     ions_stable = 0
+    step = 0
 
     -- reset termination and termination conditions
     terminate = 0
@@ -325,16 +326,17 @@ function segment.initialize_run()
     x4, y4, z4, vx4, vy4, vz4, xprime4, yprime4, tof4 = {}, {}, {}, {}, {}, {}, {}, {}, {}
     x5, y5, z5, vx5, vy5, vz5, xprime5, yprime5, tof5 = {}, {}, {}, {}, {}, {}, {}, {}, {}
     ions_transported1, ions_transported2, ions_transported3, ions_transported4, ions_transported5 = 0, 0, 0, 0, 0
+
+	-- Define arrays for the neutron mode and trajectory recoding mode
     ions_potentials = {}
     ions_x, ions_y, ions_z, ions_px, ions_py, ions_pz, ions_tof = {}, {}, {}, {}, {}, {}, {}
-    step = 0
 end
 
 -- Adjusts the potentials on all the electrodes during the flym
 function segment.fast_adjust()
 
     -- turn off RF when some time is reached
-    if Ion_Time_of_Flight >= switch_RF_time then
+    if Ion_Time_of_Flight not false and Ion_Time_of_Flight >= switch_RF_time then
         RF_STRIPE_pp = 0
     end
 
@@ -372,7 +374,7 @@ end
 -- Import the test plane library
 local TP = simion.import 'testplanelib.lua'
 
--- Define all five test planes
+-- Define first four planes, STRIPE_testplane, IG_testplane_1, IG_testplane_2, IG_testplane_3. These are only used to record ion data
 if ions_info then
     test_plane1 = TP(0, 0, STRIPE_testplane, 0, 0, -1,
         function()
@@ -440,7 +442,7 @@ if ions_info then
     )
 end
 
--- Sixth plane (splat plane, like your second plane)
+-- Fifth plane IG_testplane_4 can either function as the first hit plane or a termination plane as described beside the ions_info boolean
 local test
 if not ions_info then
     test_plane5 = TP(0, 0, IG_testplane_4, 0, 0, -1,
@@ -472,9 +474,10 @@ else
     )
 end
 
--- Merge the test planes' other_actions with your existing logic
+-- Merge the test planes' other_actions with my existing logic
 local original_other_actions = segment.other_actions
 
+-- function to apply some viscous damping
 local viscous_damping = 1
 local damping = 0
 function segment.accel_adjust()
@@ -566,6 +569,8 @@ function segment.terminate_run()
         local transport_percent1 = (ions_transported1 / ions_counter) * 100
         print("Transported through STRIPE_testplane: " .. string.format("%.2f", transport_percent1) .. "%")
         print("---")
+
+		-- STRIPE_testplane
         if transport_percent1 ~= 0 then
             local x_emit1, norm_x_emit1 = compute_x_emittance(x1, xprime1, vx1, vy1, vz1)
             local y_emit1, norm_y_emit1 = compute_y_emittance(y1, yprime1, vx1, vy1, vz1)
@@ -620,7 +625,7 @@ function segment.terminate_run()
             end
         end
 
-        -- Plane 2
+        -- IG_testplane_1
         local transport_percent2 = (ions_transported2 / ions_counter) * 100
         print("Transported through IG_testplane_1: " .. string.format("%.2f", transport_percent2) .. "%")
         if transport_percent2 ~= 0 then
@@ -677,7 +682,7 @@ function segment.terminate_run()
             end
         end
 
-        -- Plane 3 in IG
+        -- IG_testplane_2
         local transport_percent3 = (ions_transported3 / ions_counter) * 100
         print("Transported through IG_testplane_2: " .. string.format("%.2f", transport_percent3) .. "%")
         if transport_percent3 ~= 0 then
@@ -734,7 +739,7 @@ function segment.terminate_run()
             end
         end
 
-        -- Plane 4 (New)
+        -- IG_testplane_3
         local transport_percent4 = (ions_transported4 / ions_counter) * 100
         print("Transported through IG_testplane_3: " .. string.format("%.2f", transport_percent4) .. "%")
         if transport_percent4 ~= 0 then
@@ -791,7 +796,7 @@ function segment.terminate_run()
             end
         end
 
-        -- Plane 5 (New)
+        -- IG_testplane_4
         local transport_percent5 = (ions_transported5 / ions_counter) * 100
         print("Transported through IG_testplane_4: " .. string.format("%.2f", transport_percent5) .. "%")
         if transport_percent5 ~= 0 then
