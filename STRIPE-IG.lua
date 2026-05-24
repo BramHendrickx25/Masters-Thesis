@@ -51,20 +51,17 @@ local switched = false
 -- DC potential for STRIPE cross
 local DC_STRIPE_Cross = 0
 
--- DC potentials for IG electrode segments
+-- DC potentials for IG electrode segment
 local DC_IG = 0
 
--- Laser and simulation parameters
-local Irel = 100
-local laser_offset = 1
-local simulation_start = 10000
+-- Simulation parameters
+local simulation_start = 10000 -- Time after which the trajectory recording starts if in record_trajectory mode
 local simulation_length = 250
 
 -- Ion and transition parameters
 local mass = 88
 local mass_conversion = 1.66053907 * 10^(-27)
 local charge = 1
-local r0 = 1.04
 local c = 299792.458
 local TWO_PI = 2 * math.pi
 local STABLE_TOF_THRESHOLD = 100
@@ -81,8 +78,16 @@ local ions_potentials = {}
 local ions_x, ions_y, ions_z, ions_px, ions_py, ions_pz, ions_tof = {}, {}, {}, {}, {}, {}, {}
 
 -- Custom defined functions
-
 function average(array)
+		--[[
+  		Calculates the arithmetic mean of all numbers in an array.
+
+  		Parameters:
+    	array - A table of numbers
+
+  		Returns:
+    	The average of all numbers in the array, or 0 if the array is empty
+		]]
         local result = 0
         for _,a in ipairs(array) do result = result + a end
         if #array ~= 0 then result = result / #array end
