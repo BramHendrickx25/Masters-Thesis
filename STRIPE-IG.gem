@@ -10,6 +10,7 @@ locate(0,0,0,1,0,0) {
         	electrode(1){
 			fill{
 				within{
+                    ; no offset from the edge
 					cylinder(61.5,61.5,0,46,46,50)
 				}
 				within{
@@ -36,6 +37,7 @@ locate(0,0,0,1,0,0) {
         	electrode(3){
 			fill{
 				within{
+                    ; no offset from the edge
 					cylinder(61.5,61.5,0,46,46,50)
 				}
 				within{
@@ -62,6 +64,7 @@ locate(0,0,0,1,0,0) {
         	electrode(5){
 			fill{
 				within{
+                    ; no offset from the edge
 					cylinder(61.5,61.5,0,46,46,50)
 				}
 				within{
@@ -88,6 +91,7 @@ locate(0,0,0,1,0,0) {
         	electrode(7){
 			fill{
 				within{
+                    ; no offset from the edge
 					cylinder(61.5,61.5,0,46,46,50)
 				}
 				within{
@@ -113,9 +117,11 @@ locate(0,0,0,1,0,0) {
 		electrode(9){
 			fill{
 				within{
+					; second cross 0.5 mm offset from the edge
 					cylinder(0,0,0,150,150,50)
 				}
 				notin{
+					; aperature in the cross for ejection
 					cylinder(0,0,0,15,15,50)
 				}
 			}
@@ -124,7 +130,7 @@ locate(0,0,0,1,0,0) {
 }
 
 ;--Ion Guide-------------------------------------------------------------------------------------------
-; I add here the first half of the IG + 10 mm to make sure no fringe effects take place
+; I add here the first half of the IG + 1 cm to make sure no fringe effects take place
 ; A 1 mm spacer between STRIPE cross and IG
 locate(0,0,300,1,0,0) {
 	;first set of electrodes

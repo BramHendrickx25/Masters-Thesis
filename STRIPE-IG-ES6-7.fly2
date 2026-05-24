@@ -1,0 +1,183 @@
+particles {
+  coordinates = 0,
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 1,
+    position = vector(15.99834566572, 15.997955284488, 11.809189178293)
+  },
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 0,
+    position = vector(16.004001414531, 16.011682295169, 11.836472074171)
+  },
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 0,
+    position = vector(16.000937517212, 15.985058561151, 11.847154854621)
+  },
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 0,
+    position = vector(16.005896070263, 16.016694925765, 11.87138730822)
+  },
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 0,
+    position = vector(15.983944990321, 15.99310192062, 11.872475302899)
+  },
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 0,
+    position = vector(16.014768266207, 15.992373394121, 11.890948024211)
+  },
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 0,
+    position = vector(15.984296731696, 15.997578802274, 11.905808303405)
+  },
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 0,
+    position = vector(16.007529867864, 16.015183258011, 11.919509147919)
+  },
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 0,
+    position = vector(16.000400403906, 15.987472024731, 11.932564019671)
+  },
+  standard_beam {
+    n = 1,
+    tob = 0,
+    mass = 88,
+    charge = 1,
+    ke = 1.3e-005,
+    az = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    el = uniform_distribution {
+      min = 0,
+      max = 360
+    },
+    cwf = 1,
+    color = 1,
+    position = vector(15.999635167031, 16.002652977542, 11.959371804152)
+  }
+}
