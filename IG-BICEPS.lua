@@ -7,8 +7,6 @@ local total_crystal_number = 60
 -- z position of the test plane
 -- 10 mm from end of IG at 109.205 mm
 -- BICEPS center at 136.19 mm
--- start of first BICEPS electrode at approx 
--- start of second BICEPS electrode at approx 
 local IG_testplane = 136.19
 local BICEPS_testplane = 0
 local BICEPS_RF_testplane = 0
