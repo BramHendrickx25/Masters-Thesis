@@ -21,7 +21,7 @@ adjustable nu2 = 10            -- RF frequency in MHz of BICEPS
 local DC_IG = 0
 
 -- Aperture/holder potentials
-local DC_BICEPS_Ap = 0 -- BICEPS holder
+local DC_BICEPS_Ap = 0
 
 -- DC potentials for BICEPS electrode segments (trapping)
 local DC_BICEPS_1_trap = 0
