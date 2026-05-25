@@ -4,3 +4,4 @@ My MSc thesis on designing and simulating an ion guide system to connect two lin
 The repository includes .gem files of the potential array structures used in SIMION 8.1 as well as the accompanying lua code for each workbench. Finally, some of the data analysis code is also provided.
 
 DETAILS:
+-> STRIPE-IG.gem: The first potential array geometry used in SIMION to generate the PA# file. Contains the last four STRIPE electrode segments with the first half of the ion guide (extended by 10 mm)
