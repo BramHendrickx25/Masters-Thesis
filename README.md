@@ -5,3 +5,10 @@ The repository includes .gem files of the potential array structures used in SIM
 
 DETAILS:
 -> STRIPE-IG.gem: The first potential array geometry used in SIMION to generate the PA# file. Contains the last four STRIPE electrode segments with the first half of the ion guide (extended by 10 mm)
+
+-> STRIPE-IG.lua: Contains the user program for the STRIPE-IG iob file. Used to perform STRIPE extraction simulations utilizing the ion guide.
+Some different modes are present depending on the application.
+
+-> STRIPE-IG-ES6-7.fly2 & STRIPE-IG-ES6.fly2: contain the fly2 files, which are used to initialize the ions in the STRIPE-IG.iob. They contain the ions trapped between ES6-7 and at ES6 corresponding to the trapping potentials 11.8 8.8 8.8 11.8 and 9.4 8.8 8.8 11.8 for the last 4 STRIPE electrode segments.
+
+-> IG-BICEPS.gem: The second potential array geometry used in SIMION to generate the PA# file. Contains the second half of the ion guide (extended by 10 mm) and the entire BICEPS trap with three electrode segments.
