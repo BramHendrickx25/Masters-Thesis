@@ -3,26 +3,30 @@ name: Run Python Script
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch:
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4  # Check out your code
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'  # Specify your Python version
+          python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt  # If you have dependencies
-
-      - name: Run script
-        run: python your_script.py  # Replace with your filename
-
+      # Create venv + install deps in ONE step (activation persists within the step)
       - name: Set up virtual environment
         run: |
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
+
+      # Use the venv's Python explicitly for your scripts
+      - name: Run Python files
+        run: |
+          source venv/bin/activate
+          python main.py  # Run your main script
+          # Add other Python files here:
+          # python script1.py
+          # python script2.py
