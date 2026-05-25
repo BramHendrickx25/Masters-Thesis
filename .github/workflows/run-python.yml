@@ -26,7 +26,7 @@ jobs:
       - name: Run Python files
         run: |
           source venv/bin/activate
-          python main.py  # Run your main script
+          python Beam Spot Plotter.py  # Run your main script
           # Add other Python files here:
           # python script1.py
           # python script2.py
