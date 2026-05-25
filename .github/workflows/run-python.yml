@@ -20,3 +20,9 @@ jobs:
 
       - name: Run script
         run: python your_script.py  # Replace with your filename
+
+      - name: Set up virtual environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
