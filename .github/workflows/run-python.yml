@@ -15,18 +15,17 @@ jobs:
         with:
           python-version: '3.11'
 
-      # Create venv + install deps in ONE step (activation persists within the step)
-      - name: Set up virtual environment
+      # Upgrade pip and install dependencies (if requirements.txt exists)
+      - name: Set up environment
         run: |
-          python -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "No requirements.txt found, skipping dependency install"
+          fi
 
-      # Use the venv's Python explicitly for your scripts
       - name: Run Python files
         run: |
-          source venv/bin/activate
-          python Beam Spot Plotter.py  # Run your main script
-          # Add other Python files here:
-          # python script1.py
-          # python script2.py
+          python main.py
+          # Add other scripts here if needed
