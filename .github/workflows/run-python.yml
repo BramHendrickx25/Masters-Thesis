@@ -1,0 +1,22 @@
+name: Run Python Script
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4  # Check out your code
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # Specify your Python version
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt  # If you have dependencies
+
+      - name: Run script
+        run: python your_script.py  # Replace with your filename
