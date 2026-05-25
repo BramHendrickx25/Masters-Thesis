@@ -27,5 +27,5 @@ jobs:
 
       - name: Run Python files
         run: |
-          python main.py
+          python Beam Spot Plotter.py
           # Add other scripts here if needed
